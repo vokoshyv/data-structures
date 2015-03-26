@@ -27,6 +27,4 @@ Stack.prototype.size = function(){
 
 };
 
-var funStack = new Stack();
-console.log(funStack);
-console.log(funStack.sizeVar);
+

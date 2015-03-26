@@ -6,21 +6,24 @@ var LinkedList = function(){
 
 
   list.addToTail = function(value){
+  //Time complexity: constant
+
     var newNode = Node(value);
     if(list.head === null){
       list.head = newNode;
       list.tail = newNode;
     } else {
-    //don't need change head
-    //need to assign next of existing tail to newNode
-    //need to assign list.tail to newNode
+
       list.tail.next = newNode;
       list.tail = newNode;
     }
 
   };
 
+
   list.removeHead = function(){
+  //Time complexity: constant
+
     if(list.head){
       var result = list.head;
       list.head = list.head.next;
@@ -30,6 +33,7 @@ var LinkedList = function(){
   };
 
   list.contains = function(target){
+  //Time complexity: linear
 
     var currentNode = list.head;
     while(currentNode){

@@ -52,4 +52,26 @@ describe('linkedList', function() {
   });
 
   // add more tests here to test the functionality of linkedList
+  // Our tests:
+
+  it('should not error when trying to remove head from empty list', function(){
+    linkedList.removeHead();
+    linkedList.removeHead();
+    expect(linkedList.contains(3)).to.equal(false);
+  });
+
+  it('should be able to remove all Nodes and then add new Node', function(){
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    linkedList.removeHead();
+    linkedList.removeHead();
+    linkedList.addToTail(10);
+    expect(linkedList.head.value).to.equal(10);
+    expect(linkedList.tail.value).to.equal(10);
+  });
+
+
+
+
+
 });

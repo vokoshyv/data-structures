@@ -9,7 +9,7 @@ var LinkedList = function(){
   //Time complexity: constant
 
     var newNode = Node(value);
-    if(list.head === null){
+    if(!list.head){
       list.head = newNode;
       list.tail = newNode;
     } else {

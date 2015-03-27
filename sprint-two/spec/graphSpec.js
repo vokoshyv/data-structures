@@ -71,5 +71,16 @@ describe('graph', function() {
     expect(graph.hasEdge('apples', 'satsumas')).to.equal(false);
   });
 
+  it('should remove associated edges when removing a node', function() {
+    graph.addNode('apples');
+    graph.addNode('satsumas');
+    graph.addNode('pears');
+    graph.addEdge('satsumas', 'apples');
+    graph.addEdge('pears', 'apples');
+    graph.removeNode('apples');
+    expect(graph.hasEdge('apples', 'satsumas')).to.equal(false);
+    expect(graph.hasEdge('apples', 'pears')).to.equal(false);
+  });
+
 
 });

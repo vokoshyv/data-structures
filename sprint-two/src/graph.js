@@ -19,6 +19,7 @@ Graph.prototype.removeNode = function(node){
   var holder = this.nodes.indexOf(node);
   this.nodes[holder] = undefined;
   //will need to remove edges later
+
 };
 
 Graph.prototype.hasEdge = function(fromNode, toNode){
@@ -37,6 +38,13 @@ Graph.prototype.addEdge = function(fromNode, toNode){
 };
 
 Graph.prototype.removeEdge = function(fromNode, toNode){
+  var edgeIndex;
+  _.each(this.edges, function(element, elementIndex){
+    if (_.contains(element, fromNode) && _.contains(element, toNode)){
+      edgeIndex = elementIndex;
+    }
+  });
+  this.edges[edgeIndex] = undefined;
 };
 
 Graph.prototype.forEachNode = function(cb){

@@ -36,7 +36,8 @@ describe('graph', function() {
     expect(graph.hasEdge('penguins', 'kittens')).to.equal(false);
   });
 
-  it('should remove edges between nodes', function() {
+//corrected this spec description
+  it('should add edge between two nodes', function() {
     graph.addNode('apples');
     graph.addNode('satsumas');
     graph.addEdge('satsumas', 'apples');
@@ -57,4 +58,18 @@ describe('graph', function() {
     expect(graph.hasEdge('penguins', 'satsumas')).to.equal(true);
     expect(graph.hasEdge('satsumas', 'satsumas')).to.equal(true);
   });
+
+
+//our specs
+
+  it('should remove edges between nodes', function() {
+    graph.addNode('apples');
+    graph.addNode('satsumas');
+    graph.addEdge('satsumas', 'apples');
+    expect(graph.hasEdge('apples', 'satsumas')).to.equal(true);
+    graph.removeEdge('apples', 'satsumas');
+    expect(graph.hasEdge('apples', 'satsumas')).to.equal(false);
+  });
+
+
 });

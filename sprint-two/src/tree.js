@@ -16,19 +16,33 @@ var Tree = function(value){
 var treeMethods = {};
 
 treeMethods.addChild = function(value){
-  // this.children[0] = {};
-//   this.children[0].value = value;
-//   this.children[0].children = [];
-//
- var newChild = Node(value);
-//get newChild into this.children.
-//get lower level children into intermediate children
+//Time complexity: O(1)
+
+  var newChild = Node(value);
   this.children.push(newChild);
 
 
 };
 
 treeMethods.contains = function(target){
+//Time complexity: O(n)
+
+  var check = false;
+
+  var search = function(node){
+    if(node.value === target){
+      check = true;
+    }
+
+    for(var i = 0; i< node.children.length; i++){
+      search(node.children[i]);
+    }
+
+
+  };
+
+  search(this);
+  return check;
 
 };
 
@@ -47,4 +61,6 @@ var Node = function(value){
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ *
+ * See method comments
  */

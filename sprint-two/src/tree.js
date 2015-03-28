@@ -11,14 +11,12 @@ var Tree = function(value){
 
 
 
-
-
 var treeMethods = {};
 
 treeMethods.addChild = function(value){
 //Time complexity: O(1)
 
-  var newChild = Node(value);
+  var newChild = Tree(value);
   this.children.push(newChild);
 
 
@@ -47,16 +45,6 @@ treeMethods.contains = function(target){
 };
 
 
-var Node = function(value){
-  var node = {};
-
-  node.value = value;
-  node.children = [];
-
-  _.extend(node, treeMethods);
-
-  return node;
-};
 
 
 /*

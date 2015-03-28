@@ -37,4 +37,26 @@ describe('binarySearchTree', function() {
     console.log(array);
     expect(array).to.eql([5,2,3]);
   });
+
+
+//Our tests:
+
+  it('should insert one value at the correct location in the tree', function(){
+    binarySearchTree.insert(2);
+    expect(binarySearchTree.left.value).to.equal(2);
+  });
+
+  it('should execute a multiplication callback on every value in a tree using "depthFirstLog"', function(){
+    var array = [];
+    var func = function(value){
+      var newVal = 3 * value;
+      array.push(newVal); };
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(3);
+    binarySearchTree.depthFirstLog(func);
+    console.log(array);
+    expect(array).to.eql([15,6,9]);
+  });
+
+
 });

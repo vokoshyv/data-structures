@@ -41,6 +41,35 @@ describe('hashTable', function() {
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
 
+
+//Our tests:
+//
+
+  it('should overwrite values of existing keys', function() {
+    hashTable.insert('Steven', 'Seagal');
+    hashTable.insert('Steven', 'Spielberg');
+    expect(hashTable.retrieve('Steven')).to.equal('Spielberg');
+  });
+
+
+  it('should remove tuple from multi-element bucket', function() {
+    hashTable.insert('Steven', 'Seagal');
+    hashTable.insert('Fred', 'Spielberg');
+    hashTable.insert('Tom', 'Hanks');
+    hashTable.remove('Fred');
+    expect(hashTable.retrieve('Fred')).to.equal(null);
+  });
+
+  it('should not error out when attempting to remove non-existent key', function() {
+    hashTable.insert('Steven', 'Seagal');
+    hashTable.insert('Fred', 'Spielberg');
+    hashTable.insert('Tom', 'Hanks');
+    hashTable.remove('Bard');
+    expect(hashTable.retrieve('Fred')).to.equal('Spielberg');
+  });
+
+
+
   // (Extra credit! Remove the extra "x" when you want the following tests to run)
   xit('should double in size when needed', function() {
     _.each(people, function(person) {
@@ -63,4 +92,6 @@ describe('hashTable', function() {
     hashTable.remove('Mr.');
     expect(hashTable._limit).to.equal(8);
   });
+
+
 });
